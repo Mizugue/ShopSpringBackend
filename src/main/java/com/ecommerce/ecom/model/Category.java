@@ -1,6 +1,7 @@
 package com.ecommerce.ecom.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class Category {
     private Long categoryId;
 
     @JoinColumn(name = "name")
+    @NotBlank
     private String categoryName;
 
 
