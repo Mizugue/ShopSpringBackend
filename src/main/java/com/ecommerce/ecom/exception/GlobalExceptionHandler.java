@@ -1,6 +1,8 @@
 package com.ecommerce.ecom.exception;
 
 
+import jakarta.validation.ConstraintDeclarationException;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +16,7 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler({MethodArgumentNotValidException.class})
     public ResponseEntity<CategoryErrorResponse> myMethodArgumentNotValidException (MethodArgumentNotValidException exc){
         CategoryErrorResponse CategoryError = new CategoryErrorResponse();
         CategoryError.setStatus(HttpStatus.BAD_REQUEST.value());
@@ -26,15 +28,15 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<String> myResourceNotFoundException(ResourceNotFoundException resourceNotFoundException){
-        String message = resourceNotFoundException.getMessage();
-        return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+    public ResponseEntity<APIResponse> myResourceNotFoundException(ResourceNotFoundException resourceNotFoundException){
+        APIResponse apiResponse = new APIResponse(resourceNotFoundException.getMessage(), false);
+        return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(APIException.class)
-    public ResponseEntity<String> myAPIException(APIException apiException){
-        String message = apiException.getMessage();
-        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+    public ResponseEntity<APIResponse> myAPIException(APIException apiException){
+        APIResponse apiResponse = new APIResponse(apiException.getMessage(), false);
+        return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
     }
 
 

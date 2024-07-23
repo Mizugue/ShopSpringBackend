@@ -12,15 +12,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "category")
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JoinColumn(name = "id")
     private Long categoryId;
 
-    @JoinColumn(name = "name")
     @NotBlank
     @Size(min = 3, max = 10)
     private String categoryName;
