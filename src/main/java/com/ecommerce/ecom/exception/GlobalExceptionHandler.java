@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler({MethodArgumentNotValidException.class})
+    @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<CategoryErrorResponse> myMethodArgumentNotValidException (MethodArgumentNotValidException exc){
         CategoryErrorResponse CategoryError = new CategoryErrorResponse();
         CategoryError.setStatus(HttpStatus.BAD_REQUEST.value());
