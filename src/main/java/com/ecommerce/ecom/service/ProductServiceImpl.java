@@ -1,7 +1,7 @@
 package com.ecommerce.ecom.service;
 
-import com.ecommerce.ecom.Repository.CategoryRepository;
-import com.ecommerce.ecom.Repository.ProductRepository;
+import com.ecommerce.ecom.repository.CategoryRepository;
+import com.ecommerce.ecom.repository.ProductRepository;
 import com.ecommerce.ecom.dto.ProductDTO;
 import com.ecommerce.ecom.dto.ProductResponse;
 import com.ecommerce.ecom.exception.APIException;

@@ -1,12 +1,11 @@
 package com.ecommerce.ecom.service;
 
-import com.ecommerce.ecom.Repository.CategoryRepository;
+import com.ecommerce.ecom.repository.CategoryRepository;
 import com.ecommerce.ecom.dto.CategoryDTO;
 import com.ecommerce.ecom.dto.CategoryResponse;
 import com.ecommerce.ecom.exception.APIException;
 import com.ecommerce.ecom.exception.ResourceNotFoundException;
 import com.ecommerce.ecom.model.Category;
-import jakarta.validation.ConstraintViolationException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,7 +13,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 
 import java.util.List;
